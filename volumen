@@ -1,0 +1,26 @@
+response = requests.get(volumes_url, headers=headers)
+volumes_data = response.json()
+
+# Wyświetl nazwę wolumenu i WWPNa
+for volume in volumes_data['volumes']:
+    volume_name = volume['name']
+    volume_metadata = volume['metadata']
+    wwpn = volume_metadata.get('wwpn', 'Brak informacji WWPNa')
+
+    print("Nazwa wolumenu:", volume_name)
+    print("WWPN:", wwpn)
+    print("--------------------")
+
+
+response = requests.get(volumes_url, headers=headers)
+volumes_data = response.json()
+
+# Wyświetl nazwę wolumenu i WWPNa
+for volume in volumes_data['volumes']:
+    volume_name = volume['name']
+    volume_metadata = volume['metadata']
+    wwpn = str(volume_metadata.get('wwpn', 'Brak informacji WWPNa'))
+
+    print("Nazwa wolumenu:", volume_name)
+    print("WWPN:", wwpn)
+    print("--------------------")
