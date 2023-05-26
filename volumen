@@ -24,3 +24,12 @@ for volume in volumes_data['volumes']:
     print("Nazwa wolumenu:", volume_name)
     print("WWPN:", wwpn)
     print("--------------------")
+
+
+Program rozpoczyna od prośby o podanie loginu, hasła i nazwy LPAR-a, który ma zostać usunięty.
+Następnie, korzystając z podanych danych uwierzytelniających, program pobiera token dostępu do PowerVC API.
+Po uzyskaniu tokena, program przekształca nazwę LPAR-a na ID serwera, korzystając z dostępnych funkcji API.
+Kiedy program posiada ID serwera, oznacza wszystkie dyski przypisane do LPAR-a, które mają zostać usunięte, aby zachować LUN-y.
+Następnie, program usuwa LPAR-a za pomocą funkcji API PowerVC.
+Na koniec, program wyświetla listę dysków, które należy usunąć ręcznie. Informacje te można uzyskać również z funkcji API PowerVC.
+Użytkownik może zastosować odpowiednie środki do usunięcia wskazanych dysków.
